@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Hi, I'm Thasi 👋</h1>
+  <p>I'm a student learning to build software.</p>
+
+  <h2>Projects</h2>
+  <ul>
+    <li>Calculator App (coming soon)</li>
+    <li>To-Do App (coming soon)</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Email: coming soon</p>
+
+</body>
+</html>
