@@ -11,3 +11,116 @@ h1 {
 h2 {
   margin-top: 30px;
 }
+/* Calculator Styles */
+#display {
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  text-align: right;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+button {
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+  margin: 2px;
+  border: none;
+  background-color: #4CAF50; /* green buttons */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #45a049; /* darker green on hover */
+}
+
+h2 {
+  color: #333;
+  margin-top: 30px;
+}
+/* Center calculator */
+.calculator {
+  width: 220px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Display */
+#display {
+  width: 200px;
+  height: 45px;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* Number buttons */
+button {
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+  margin: 3px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:not(.operator):not(.clear):not(.equals) {
+  background-color: #2196F3; /* blue */
+  color: white;
+}
+
+/* Operator buttons */
+.operator {
+  background-color: #FF9800; /* orange */
+  color: white;
+}
+
+/* Equals button */
+.equals {
+  background-color: #4CAF50; /* green */
+  color: white;
+}
+
+/* Clear button */
+.clear {
+  background-color: #F44336; /* red */
+  color: white;
+}
+.calculator {
+  margin: 40px auto;
+  width: fit-content;
+  text-align: center;
+}
+#display {
+  width: 220px;
+  height: 40px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+button {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6; /* numbers */
+  color: white;
+}
+
+.operator {
+  background-color: orange;
+}
+
+.equals {
+  background-color: green;
+}
+
+.clear {
+  background-color: red;
+}
