@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Hi, I'm Thasi 👋</h1>
+  <p>I'm a student learning to build software.</p>
+
+  <h2>Projects</h2>
+  <ul>
+    <li>Calculator App (coming soon)</li>
+    <li>To-Do App (coming soon)</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Email: coming soon</p>
+
+</body>
+</html>
+<h2>Calculator</h2>
+
+<input type="text" id="display" disabled>
+
+<br><br>
+
+<button onclick="press('7')">7</button>
+<button onclick="press('8')">8</button>
+<button onclick="press('9')">9</button>
+<button onclick="press('/')">÷</button>
+
+<br>
+
+<button onclick="press('4')">4</button>
+<button onclick="press('5')">5</button>
+<button onclick="press('6')">6</button>
+<button onclick="press('*')">×</button>
+
+<br>
+
+<button onclick="press('1')">1</button>
+<button onclick="press('2')">2</button>
+<button onclick="press('3')">3</button>
+<button onclick="press('-')">−</button>
+
+<br>
+
+<button onclick="press('0')">0</button>
+<button onclick="calculate()">=</button>
+<button onclick="clearDisplay()">C</button>
+<button onclick="press('+')">+</button>
+</body>,<script>
+  let display = document.getElementById("display");
+
+  function press(value) {
+    display.value += value;
+  }
+
+  function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch {
+      display.value = "Error";
+    }
+  }
+
+  function clearDisplay() {
+    display.value = "";
+  }
+</script>
