@@ -168,3 +168,34 @@ toggleButton.addEventListener('click', () => {
 <p style="text-align:center;">
   A fast, mobile-friendly calculator built with JavaScript.
 </p>
+<section id="todo">
+  <h2>To-Do App</h2>
+  <p style="text-align:center;">
+    A simple task manager built with JavaScript.
+  </p>
+
+  <div class="todo-container">
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+  </div>
+</section>
+<script>
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+function addTask() {
+  if (taskInput.value === "") return;
+
+  const li = document.createElement("li");
+  li.innerHTML = `
+    ${taskInput.value}
+    <button onclick="this.parentElement.remove()">❌</button>
+  `;
+
+  taskList.appendChild(li);
+  taskInput.value = "";
+}
+</script>
+ 
