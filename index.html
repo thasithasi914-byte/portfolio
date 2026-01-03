@@ -13,6 +13,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#calculator">Calculator</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button id="darkModeToggle">🌙</button></li>
   </ul>
 </nav>
 
@@ -126,4 +127,18 @@ function checkVisibility() {
 
 window.addEventListener('scroll', checkVisibility);
 window.addEventListener('load', checkVisibility);
+</script>
+</body><script>
+// Dark mode toggle
+const toggleButton = document.getElementById('darkModeToggle');
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  // Change icon
+  if (document.body.classList.contains('dark-mode')) {
+    toggleButton.textContent = '☀️';
+  } else {
+    toggleButton.textContent = '🌙';
+  }
+});
 </script>

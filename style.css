@@ -242,3 +242,51 @@ section.visible {
   opacity: 1;
   transform: translateY(0);
 }
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+/* Headings in dark mode */
+body.dark-mode h1, body.dark-mode h2 {
+  color: #f3f4f6;
+}
+
+/* Calculator in dark mode */
+body.dark-mode .calculator {
+  background-color: #1f2937;
+  box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+}
+
+body.dark-mode #display {
+  background-color: #374151;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+body.dark-mode button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+body.dark-mode .operator {
+  background-color: #f59e0b;
+}
+
+body.dark-mode .equals {
+  background-color: #10b981;
+}
+
+body.dark-mode .clear {
+  background-color: #ef4444;
+}
+
+body.dark-mode .project-card {
+  background-color: #1f2937;
+  box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+}
+
+body.dark-mode .project-card p {
+  color: #d1d5db;
+}
