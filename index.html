@@ -177,6 +177,7 @@ toggleButton.addEventListener('click', () => {
   <div class="todo-container">
     <input type="text" id="taskInput" placeholder="Enter a task">
     <button onclick="addTask()">Add</button>
+    <button id="clearAll">Clear All Tasks</button>
 
     <ul id="taskList"></ul>
   </div>
@@ -253,4 +254,14 @@ function loadUI() {
   taskList.innerHTML = "";
   loadTasks();
 }
+</script>
+<script>
+const clearAllButton = document.getElementById("clearAll");
+
+clearAllButton.addEventListener("click", () => {
+  if (confirm("Are you sure you want to delete all tasks?")) {
+    localStorage.removeItem("tasks"); // delete all tasks
+    taskList.innerHTML = ""; // clear the list visually
+  }
+});
 </script>
