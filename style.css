@@ -226,3 +226,19 @@ html {
     gap: 10px;
   }
 }
+/* Calculator hover animation */
+.calculator:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s;
+}
+/* Fade-in sections */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
