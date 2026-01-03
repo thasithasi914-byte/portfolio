@@ -142,3 +142,44 @@ button:hover {
     width: 90%;
   }
 }
+/* Project buttons */
+.project-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-buttons a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.project-buttons a:first-child {
+  background-color: #3b82f6; /* blue - Live Demo */
+}
+
+.project-buttons a:last-child {
+  background-color: #10b981; /* green - View Code */
+}
+
+.project-buttons a:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .project-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .project-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
