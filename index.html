@@ -185,17 +185,53 @@ toggleButton.addEventListener('click', () => {
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
+// Load saved tasks when page opens
+window.addEventListener("load", loadTasks);
+
 function addTask() {
-  if (taskInput.value === "") return;
+  if (taskInput.value.trim() === "") return;
 
-  const li = document.createElement("li");
-  li.innerHTML = `
-    ${taskInput.value}
-    <button onclick="this.parentElement.remove()">❌</button>
-  `;
+  const task = taskInput.value;
+  saveTask(task);
+  createTaskElement(task);
 
-  taskList.appendChild(li);
   taskInput.value = "";
 }
+
+// Create task element
+function createTaskElement(task) {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <span>${task}</span>
+    <button onclick="deleteTask(this)">❌</button>
+  `;
+  taskList.appendChild(li);
+}
+
+// Save task to localStorage
+function saveTask(task) {
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Load tasks from localStorage
+function loadTasks() {
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach(task => createTaskElement(task));
+}
+
+// Delete task
+function deleteTask(button) {
+  const taskText = button.parentElement.querySelector("span").innerText;
+  button.parentElement.remove();
+
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks = tasks.filter(task => task !== taskText);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 </script>
- 
+<h2>Student Task Manager</h2>
+<p style="text-align:center;">
+  Save your daily tasks and stay organized.
+</p>
