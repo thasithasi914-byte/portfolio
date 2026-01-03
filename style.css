@@ -113,6 +113,16 @@ button:hover {
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
 }
+.project-card {
+  border-top: 4px solid #3b82f6;
+}
+.project-card:nth-child(2) {
+  border-top-color: #10b981;
+}
+
+.project-card:nth-child(3) {
+  border-top-color: #f59e0b;
+}
 
 .project-card h3 {
   font-family: 'Poppins', sans-serif;
@@ -289,4 +299,24 @@ body.dark-mode .project-card {
 
 body.dark-mode .project-card p {
   color: #d1d5db;
+}
+section {
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 0 20px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+button:active {
+  transform: scale(0.95);
+}
+* {
+  transition: background-color 0.3s, color 0.3s;
+}
+.projects {
+  margin-top: 20px;
 }
