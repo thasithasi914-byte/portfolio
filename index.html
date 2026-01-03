@@ -185,53 +185,72 @@ toggleButton.addEventListener('click', () => {
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
-// Load saved tasks when page opens
 window.addEventListener("load", loadTasks);
 
 function addTask() {
   if (taskInput.value.trim() === "") return;
 
-  const task = taskInput.value;
+  const task = {
+    text: taskInput.value,
+    completed: false
+  };
+
   saveTask(task);
   createTaskElement(task);
 
   taskInput.value = "";
 }
 
-// Create task element
 function createTaskElement(task) {
   const li = document.createElement("li");
-  li.innerHTML = `
-    <span>${task}</span>
-    <button onclick="deleteTask(this)">❌</button>
-  `;
+
+  const span = document.createElement("span");
+  span.innerText = task.text;
+  if (task.completed) span.classList.add("completed");
+
+  span.onclick = () => toggleTask(span, task.text);
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerText = "❌";
+  deleteBtn.onclick = () => deleteTask(task.text);
+
+  li.appendChild(span);
+  li.appendChild(deleteBtn);
   taskList.appendChild(li);
 }
 
-// Save task to localStorage
 function saveTask(task) {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Load tasks from localStorage
 function loadTasks() {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.forEach(task => createTaskElement(task));
 }
 
-// Delete task
-function deleteTask(button) {
-  const taskText = button.parentElement.querySelector("span").innerText;
-  button.parentElement.remove();
-
+function toggleTask(span, text) {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks = tasks.filter(task => task !== taskText);
+  tasks = tasks.map(task => {
+    if (task.text === text) {
+      task.completed = !task.completed;
+      span.classList.toggle("completed");
+    }
+    return task;
+  });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+function deleteTask(text) {
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks = tasks.filter(task => task.text !== text);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  loadUI();
+}
+
+function loadUI() {
+  taskList.innerHTML = "";
+  loadTasks();
+}
 </script>
-<h2>Student Task Manager</h2>
-<p style="text-align:center;">
-  Save your daily tasks and stay organized.
-</p>
